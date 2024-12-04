@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-
 // get token from localStorage
 const getUser = () => {
   return JSON.parse(localStorage.getItem('user'))
@@ -8,8 +7,8 @@ const getUser = () => {
 
 // Tworzymy instancję axios z globalnymi ustawieniami
 const axiosInstance = axios.create({
-  // baseURL: `http://localhost:3000/api/workouts/` //dev
-  baseURL: 'https://mern-backend-xbfj.onrender.com/api/workouts' //prod
+  // baseURL: `http://localhost:3000/api` //dev
+  baseURL: 'https://mern-backend-xbfj.onrender.com/api' //prod
 });
 
 // Ustawiamy token w nagłówkach dla każdej wysyłanej prośby, do tego posłuży interceptor z Axiosa

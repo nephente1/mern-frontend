@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useAuthContext } from "../components/useAuthContext";
 import { useNavigate } from "react-router-dom";
+import axiosInstance from "../api/axiosInstance";
+import axios from "axios";
 
 
 
@@ -14,28 +16,29 @@ export const useSignup = () => {
     setLoading(true);
     setError(null);
 
-    const response = await fetch('/api/user/signup', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({email, password})
-    })
+    try {
+      const response = await axiosInstance.post('/user/signup', {email, password});
+        // save the user to local strorage
+      const res = response.data;
 
-    console.log('res', response)
-
-    const json = await response.json();
-
-    if (!response.ok) {
-      setLoading(false);
-      setError(json.error);
-    }
-    if (response.ok) {
       // save the user to local strorage
-      localStorage.setItem('user', JSON.stringify(json));
+      localStorage.setItem('user', JSON.stringify(res));
       // update auth context
-      dispatch({ type: 'SIGNUP', payload: json });
+      dispatch({ type: 'SIGNUP', payload: res });
 
       setLoading(false)
-      await navigate("/login")
+      navigate("/login")
+      return res
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+          setLoading(false);
+          setError(error.response.data.error);
+        console.error('error:', error);
+      } else {
+        // Obsługa innych typów błędów
+        console.error('Unexpected error:', error);
+        throw new Error('Unexpected error occurred');
+      }
     }
   }
 

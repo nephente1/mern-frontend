@@ -4,7 +4,6 @@ import { Form } from '../components/Form';
 import { useQuery } from '@tanstack/react-query';
 
 export const Home = () => {
-	
 	const { data: workouts, isLoading, isError, error } = useQuery({ 
 		queryKey: ['workouts'], 
 		queryFn: fetchWorkouts,

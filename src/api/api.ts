@@ -15,7 +15,7 @@ export interface BackendError {
 
 export const fetchWorkouts = async () => {
   try{
-    const response = await axiosInstance.get('/');
+    const response = await axiosInstance.get('/workouts');
     return response.data;
   } catch (error) {
     console.log("Error:", error.response.data)
@@ -27,7 +27,7 @@ export const fetchWorkouts = async () => {
 export const createItemFetchRequest = async (item: WorkoutTypes): Promise<any> => {
 
   try {
-    const response = await axiosInstance.post('/', item);
+    const response = await axiosInstance.post('/workouts', item);
 
     return response.data;
   } catch (error) {
@@ -47,7 +47,7 @@ export const createItemFetchRequest = async (item: WorkoutTypes): Promise<any> =
 
 export const deleteDataFetch = async(id) => {
   try {
-    const response = await axiosInstance.delete(`/${id}`);
+    const response = await axiosInstance.delete(`/workouts/${id}`);
     return response.data;
   } catch (error) {
     console.log("Error:", error.response.data)
@@ -56,7 +56,7 @@ export const deleteDataFetch = async(id) => {
 
 export const patchDataFetch = async(id: string, objToSend: WorkoutTypes) => {
   try {
-    const response = await axiosInstance.patch(`/${id}`, objToSend);
+    const response = await axiosInstance.patch(`/workouts/${id}`, objToSend);
     return response.data;
   } catch (error) {
     console.log("Error:", error.response.data)
