@@ -15,6 +15,10 @@ export const Navbar = () => {
     navigate("/profile")
   }
 
+  const handleTrainingsClick = () => {
+    navigate("/")
+  }
+
   return(
     <header>
       <div className="container">
@@ -22,21 +26,21 @@ export const Navbar = () => {
           <h1>Workouts App</h1>
         </Link>
         <nav>
-          {user && (
+          {user ? (
             <div>
               <span>{user.email}</span>
+              <button onClick={handleTrainingsClick}>Trainings</button>
               <button onClick={handleProfileClick}>My Profile</button>
               <button onClick={handleClick}>Log out</button>
             </div>
-          )}
-        </nav>
-        <nav>
-          {!user && (
-            <div>
-              <Link to="/login">Login</Link>
-              <Link to="/signup">Signup</Link>
-            </div>
-          )}
+            ) :
+            (
+              <div>
+                <button onClick={() => navigate("/")}>Login</button>
+                <button onClick={() => navigate("/signup")}>Signup</button>
+              </div>
+            )
+          }
         </nav>
       </div>
     </header>
