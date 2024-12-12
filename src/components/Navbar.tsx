@@ -30,7 +30,7 @@ export const Navbar = () => {
         <nav>
           {user ? (
             <>
-              <span>{user.email}</span>
+              <div>{user.email}</div>
               <button onClick={handleTrainingsClick}>Trainings</button>
               <button onClick={handleProfileClick}>My Profile</button>
               <button onClick={handleClick}>Log out</button>

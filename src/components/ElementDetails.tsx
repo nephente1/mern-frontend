@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { deleteDataFetch } from "../api/api";
-import { formatedDate, formatMinutes } from "../utils";
 import { EditForm } from "./EditForm";
+import { formatedDate } from "../utils";
 
 export const ElementDetails = ({ workout }: any) => {
   const queryClient = useQueryClient()
@@ -33,9 +33,9 @@ export const ElementDetails = ({ workout }: any) => {
         (
           <>
             <p><b>Distance: </b>{workout.distance} km</p>
-            <p><b>Time: </b>{formatMinutes(workout.time)}</p>
+            <p><b>Time: </b>{workout.time}</p>
             {/* <p>{formatedDate(workout.date) ?? formatedDate(workout.createdAt)}</p> */}
-            <p>{date}</p>
+            <p><b>Date: </b>{date}</p>
           </>
         )
       }

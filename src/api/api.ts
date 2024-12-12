@@ -4,7 +4,7 @@ import axiosInstance from "./axiosInstance";
 export interface WorkoutTypes {
   title: string;
   distance: number;
-  time: number;
+  time: string;
   date?: Date | string
 }
 

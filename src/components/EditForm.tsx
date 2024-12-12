@@ -35,7 +35,7 @@ const handleSubmit = async(event) => {
       <label htmlFor="content">Distance (km)</label>
       <input type="number" name="distance" placeholder="distance" defaultValue={workout.distance} ref={distanceRef} required/>
       <label htmlFor="content">Time</label>
-      <input type="number" name="time" placeholder="time" defaultValue={workout.time} ref={timeRef} required/>
+      <input type="text" name="time" placeholder="time" defaultValue={workout.time} ref={timeRef} required/>
 
       <button type="submit">Submit</button> <button onClick={() => setEdit(false)} type="button">Cancel</button>
     </form>
