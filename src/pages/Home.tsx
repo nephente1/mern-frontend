@@ -16,9 +16,10 @@ export const Home = () => {
 
 	return (
 		<>
-			<h2>Home</h2>
+			<h2>Trainings</h2>
 			<div className="home">
 				<div className="workouts">
+					{workouts?.length === 0 && <div>Let's do some training and add one!</div>}
 					{isLoading && <div>Loading...</div>}
 					{workouts?.map((el: any) => <ElementDetails key={el._id} workout={el}>{el.title}</ElementDetails>)}
 				</div>

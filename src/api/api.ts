@@ -3,8 +3,8 @@ import axiosInstance from "./axiosInstance";
 
 export interface WorkoutTypes {
   title: string;
-  load: number;
-  reps: number;
+  distance: number;
+  time: number;
   date?: Date | string
 }
 

@@ -21,24 +21,26 @@ export const Navbar = () => {
 
   return(
     <header>
-      <div className="container">
+      <div className="header-container">
         <Link to="/">
-          <h1>Workouts App</h1>
+          <h1>Trainings App</h1>
+          <span className="material-symbols-outlined">directions_bike</span>
+          <span className="material-symbols-outlined">sprint</span>
         </Link>
         <nav>
           {user ? (
-            <div>
+            <>
               <span>{user.email}</span>
               <button onClick={handleTrainingsClick}>Trainings</button>
               <button onClick={handleProfileClick}>My Profile</button>
               <button onClick={handleClick}>Log out</button>
-            </div>
+            </>
             ) :
             (
-              <div>
+              <>
                 <button onClick={() => navigate("/")}>Login</button>
                 <button onClick={() => navigate("/signup")}>Signup</button>
-              </div>
+              </>
             )
           }
         </nav>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { deleteDataFetch } from "../api/api";
-import { formatedDate } from "../utils";
+import { formatedDate, formatMinutes } from "../utils";
 import { EditForm } from "./EditForm";
 
 export const ElementDetails = ({ workout }: any) => {
@@ -26,14 +26,14 @@ export const ElementDetails = ({ workout }: any) => {
   const date = workout.date ? formatedDate(workout.date) : formatedDate(workout.createdAt);
 
   return (
-    <div className="details">
+    <div className="details-box">
       <h4>{workout.title}</h4>
       {isEdited ? 
         <EditForm workout={workout} setEdit={setEdit} /> :
         (
           <>
-            <p><b>Load: </b>{workout.load}</p>
-            <p><b>Reps: </b>{workout.reps}</p>
+            <p><b>Distance: </b>{workout.distance} km</p>
+            <p><b>Time: </b>{formatMinutes(workout.time)}</p>
             {/* <p>{formatedDate(workout.date) ?? formatedDate(workout.createdAt)}</p> */}
             <p>{date}</p>
           </>

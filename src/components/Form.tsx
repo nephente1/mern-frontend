@@ -6,8 +6,8 @@ import { BackendError, createItemFetchRequest, WorkoutTypes } from '../api/api';
 export const Form = () => {
   const { user } = useAuthContext();
   const [title, setTitle] = useState('')
-  const [load, setLoad] = useState(0)
-  const [reps, setReps] = useState(0)
+  const [distance, setDistance] = useState(0)
+  const [time, setTime] = useState(0)
   const [date, setDate] = useState<Date | string>(() => {
       // Ustawiamy dzisiejszą datę w formacie 'YYYY-MM-DD'
       const today = new Date();
@@ -24,8 +24,8 @@ export const Form = () => {
       queryClient.invalidateQueries({ queryKey: ['workouts'] })
       setError(null)
       setTitle('')
-      setLoad(0)
-      setReps(0)
+      setDistance(0)
+      setTime(0)
       setEmptyFields([])
     },
     onError: (error: BackendError) => {
@@ -44,8 +44,8 @@ export const Form = () => {
     }
     const obj: WorkoutTypes = {
       title: title,
-      load: load,
-      reps: reps,
+      distance: distance,
+      time: time,
       date: date,
     }
     createItemMutation.mutate(obj);
@@ -53,8 +53,8 @@ export const Form = () => {
 
   return (
     <form className="create" onSubmit={handleSubmit}> 
-      <h3>Add a New Workout</h3>
-      <label>Excersize Title:</label>
+      <h3>Add new workout</h3>
+      <label>Training Title:</label>
       <input 
         type="text" 
         onChange={(e) => setTitle(e.target.value)} 
@@ -62,21 +62,22 @@ export const Form = () => {
         className={emptyFields?.includes('title') ? 'error' : ''}
       />
 
-      <label>Load (in kg):</label>
+      <label>Distance (km):</label>
       <input 
         type="number" 
-        onChange={(e) => setLoad(Number(e.target.value))} 
-        value={load}
-        className={emptyFields?.includes('load') ? 'error' : ''}
+        onChange={(e) => setDistance(Number(e.target.value))} 
+        value={distance}
+        className={emptyFields?.includes('distance') ? 'error' : ''}
       />
 
-      <label>Number of Reps:</label>
+      <label>Time (mins):</label>
       <input 
         type="number" 
-        onChange={(e) => setReps(parseInt(e.target.value))} 
-        value={reps}
-        className={emptyFields?.includes('reps') ? 'error' : ''}
+        onChange={(e) => setTime(parseInt(e.target.value))} 
+        value={time}
+        className={emptyFields?.includes('time') ? 'error' : ''}
       />
+      <label>Date:</label>
       <input 
         type="date" 
         onChange={(e) => setDate(e.target.valueAsDate)} 
