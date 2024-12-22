@@ -27,10 +27,10 @@ export const Form = () => {
     }
 
     // Handle the "HH:mm" format where hours are optional
-    if (/^([0-9]{1,2}):([0-5]?[0-9])$/.test(value) || value === '') {
+    // if (/^([0-9]{1,2}):([0-5]?[0-9])$/.test(value) || value === '') {
       setTime(value);
     
-    }
+    // }
   };
 
   const createItemMutation = useMutation({ 
@@ -45,12 +45,13 @@ export const Form = () => {
     },
     onError: (error: BackendError) => {
         console.error(`Error from backend: ${error.error}`);
-        console.error("Empty Fields:", error.emptyFields); // Log the missing fields
-   
+        console.error("Empty Fields:", error.emptyFields);
         setEmptyFields(error.emptyFields)
         setError(error.error)
     },
   })
+  const { isSuccess } = createItemMutation;
+  
   const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     if (!user) {
@@ -65,6 +66,7 @@ export const Form = () => {
     }
     createItemMutation.mutate(obj);
   }
+
 
   return (
     <form className="create" onSubmit={handleSubmit}> 
@@ -104,6 +106,7 @@ export const Form = () => {
 
       <button>Add Workout</button>
       {errorSet && <div className="error">{errorSet}</div>}
+      {isSuccess && <div className="success">Workout added successfully</div>}
     </form>
   )
 }

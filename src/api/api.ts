@@ -35,7 +35,6 @@ export const createItemFetchRequest = async (item: WorkoutTypes): Promise<any> =
       // Obsługa błędu z backendu
       const backendError = error.response?.data as BackendError;
       console.error('Backend error:', backendError);
-
       throw backendError; // Rzucamy błąd do wyższej warstwy
     } else {
       // Obsługa innych typów błędów

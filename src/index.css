@@ -16,6 +16,7 @@
   --dark: #333;
   --tablet: 900px;
   --phone: 480px;
+  --success: #4bb543;
 }
 body {
   background: #555555;
@@ -153,6 +154,14 @@ div.error {
   margin: 20px 0;
 }
 
+div.success {
+  padding: 10px;
+  border: 1px solid var(--success);
+  color: var(--success);
+  border-radius: 4px;
+  margin: 20px 0;
+}
+
 input.error {
   border: 1px solid var(--error);
 }
@@ -268,6 +277,14 @@ button {
 
 .flex-centered {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+}
+
+.flex-centered-column {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 14px;

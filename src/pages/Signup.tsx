@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import { useSignup } from '../components/useSignup';
+import { PasswordChecker } from '../components/PasswordChecker/PasswordChecker';
 
 export const Signup = () => {
   const [email, setEmail] = useState('');
@@ -8,8 +9,6 @@ export const Signup = () => {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
-
-    console.log(email, password)
     await signup(email, password);
   }
 
@@ -34,8 +33,8 @@ export const Signup = () => {
 
         <button disabled={isLoading}>Sign up</button>
         {error && <div className="error">{error}</div>}
-        {/* {!error && <div>Signup succesfully</div>} */}
       </form>
+      <PasswordChecker password={password}/>
     </>
   )
 }
