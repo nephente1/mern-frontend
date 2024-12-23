@@ -39,8 +39,8 @@ export const ElementDetails = ({ workout }: any) => {
           </>
         )
       }
-      <span className="material-symbols-outlined" onClick={handleEdit}>edit_square</span>
-      <span className="material-symbols-outlined" onClick={handleDelete}>delete</span>
+      <span className="material-symbols-outlined" translate="no" aria-hidden="true" onClick={handleEdit}>edit_square</span>
+      <span className="material-symbols-outlined" translate="no" aria-hidden="true" onClick={handleDelete}>delete</span>
     </div>
   )
 }

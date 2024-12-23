@@ -3,6 +3,7 @@ import { ElementDetails } from '../components/ElementDetails';
 import { Form } from '../components/Form';
 import { useQuery } from '@tanstack/react-query';
 import { StatisticsPanel } from '../components/StatisticsPanel.tsx/StatisticsPanel';
+import { DateRange } from '../components/DateRange/DateRange';
 
 export const Home = () => {
 	const { data: workouts, isLoading, isError, error } = useQuery({ 
@@ -21,6 +22,7 @@ export const Home = () => {
 		<>
 			<h2>Trainings</h2>
 			<StatisticsPanel workouts={workouts} />
+			{/* <DateRange workouts={dataFromNewest} /> */}
 			<div className="home">
 				<div className="workouts">
 					{workouts?.length === 0 && <div>Let's do some training and add one!</div>}

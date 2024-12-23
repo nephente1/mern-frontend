@@ -24,8 +24,8 @@ export const Navbar = () => {
       <div className="header-container">
         <Link to="/">
           <h1>Trainings App</h1>
-          <span className="material-symbols-outlined">directions_bike</span>
-          <span className="material-symbols-outlined">sprint</span>
+          <span className="material-symbols-outlined" translate="no" aria-hidden="true">directions_bike</span>
+          <span className="material-symbols-outlined" translate="no" aria-hidden="true">sprint</span>
         </Link>
         <nav>
           {user ? (

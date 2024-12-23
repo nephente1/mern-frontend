@@ -48,8 +48,8 @@ export const Login = () => {
           onClick={togglePasswordVisibility}
           aria-label={isPasswordVisible ? 'Hide password' : 'Show password'}
         >
-          {isPasswordVisible ? <span className="material-symbols-outlined">visibility</span> : 
-          <span className="material-symbols-outlined">visibility_off</span>}
+          {isPasswordVisible ? <span className="material-symbols-outlined" translate="no" aria-hidden="true">visibility</span> : 
+          <span className="material-symbols-outlined" translate="no" aria-hidden="true">visibility_off</span>}
         </button>
         </div>
 
