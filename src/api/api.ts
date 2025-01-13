@@ -49,7 +49,8 @@ export const deleteDataFetch = async(id) => {
     const response = await axiosInstance.delete(`/workouts/${id}`);
     return response.data;
   } catch (error) {
-    console.log("Error:", error.response.data)
+    // console.log("Error:", error.response.data)
+    throw new Error(error.response?.data?.error);
   }
 }
 

@@ -9,6 +9,7 @@ export const Profile = () => {
   
   return (
     <div>
+      <h2>My Profile</h2>
       <p>email/login: {user.email}</p>
       <StatisticsPanel workouts={cachedWorkouts} />
     </div>

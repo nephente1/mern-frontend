@@ -1,29 +1,20 @@
-import { useState } from "react";
-import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { deleteDataFetch } from "../api/api";
+import { memo, useState } from "react";
 import { EditForm } from "./EditForm";
 import { formatedDate } from "../utils";
 
-export const ElementDetails = ({ workout }: any) => {
-  const queryClient = useQueryClient()
+
+export const ElementDetails = memo(({ workout, onDelete }: any) => {
   const [isEdited, setEdit] = useState(false);
-
-  const deleteMutation = useMutation({ 
-    mutationFn: () => deleteDataFetch(workout._id),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['workouts'] })
-    }
-  })
-
-  const handleDelete = () => {
-    deleteMutation.mutate()
-  }
 
   const handleEdit = () => {
     setEdit(!isEdited);
   }
 
   const date = workout.date ? formatedDate(workout.date) : formatedDate(workout.createdAt);
+
+  const handleDelete = () => {
+    onDelete(workout._id);
+  };
 
   return (
     <div className="details-box">
@@ -43,4 +34,4 @@ export const ElementDetails = ({ workout }: any) => {
       <span className="material-symbols-outlined" translate="no" aria-hidden="true" onClick={handleDelete}>delete</span>
     </div>
   )
-}
+})

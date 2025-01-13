@@ -5,6 +5,7 @@ const getUser = () => {
   return JSON.parse(localStorage.getItem('user'))
 };
 
+console.log("environment:", process.env.NODE_ENV)
 // Tworzymy instancję axios z globalnymi ustawieniami
 const axiosInstance = axios.create({
   // baseURL: `http://localhost:3000/api` //dev

@@ -1,0 +1,25 @@
+.custom-datepicker .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline{
+  border: 2px solid var(--primary);
+  /* border-radius: 10px; */
+  /* background-color: var(--secondary); */
+  & button:hover {
+    border: none;
+  }
+}
+
+.custom-datepicker .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline, .custom-datepicker .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: var(--primary);
+  color: var(--primary)
+}
+
+.custom-datepicker .MuiInputLabel-root, .custom-datepicker .MuiInputLabel-root.Mui-focused {
+  color: var(--secondary)
+}
+
+.custom-datepicker .MuiOutlinedInput-input, .custom-datepicker {
+  color: var(--secondary);
+}
+
+.custom-datepicker .MuiSvgIcon-root {
+  color: var(--primary);
+}

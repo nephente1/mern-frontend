@@ -7,7 +7,7 @@ export const Navbar = () => {
   const { user } = useAuthContext();
   const navigate = useNavigate();
 
-  const handleClick = () => {
+  const handleLogoutClick = () => {
     logout();
   }
 
@@ -33,7 +33,7 @@ export const Navbar = () => {
               <div>{user.email}</div>
               <button onClick={handleTrainingsClick}>Trainings</button>
               <button onClick={handleProfileClick}>My Profile</button>
-              <button onClick={handleClick}>Log out</button>
+              <button onClick={handleLogoutClick}>Log out</button>
             </>
             ) :
             (
