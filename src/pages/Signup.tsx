@@ -15,21 +15,26 @@ export const Signup = () => {
   return (
     <>
       <p className="flex-centered">Sign up to create your account</p>
-      <form className="signup" onSubmit={handleSubmit}>
+      <form className="signup flex-justify-column" onSubmit={handleSubmit}>
         <h3>Sign up</h3>
 
-        <label>Email:</label>
-        <input 
-          type="email" 
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
-        />
-        <label>Password:</label>
-        <input 
-          type="password" 
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-        />
+        <div>
+          <label>Email:</label>
+          <input 
+            type="email" 
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+          />
+        </div>
+
+        <div>
+          <label>Password:</label>
+          <input 
+            type="password" 
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+          />
+        </div>
 
         <button disabled={isLoading}>Sign up</button>
         {error && <div className="error">{error}</div>}

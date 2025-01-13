@@ -140,8 +140,6 @@ label {
 }
 input {
   padding: 8px 14px;
-  /* margin-top: 5px; */
-  /* margin-bottom: 10px; */
   width: 100%;
   border: 2px solid var(--primary);
   color: var(--dark);
@@ -153,7 +151,7 @@ input {
 div.error {
   padding: 10px;
   background: #ffefef;
-  border: 1px solid var(--error);
+  border: 2px solid var(--error);
   color: var(--error);
   border-radius: 4px;
   margin: 20px 0;
@@ -190,7 +188,7 @@ nav {
  color: var(--dark);
 }
 
-nav button {
+.functional button {
   background: transparent;
   color: var(--primary);
   border: 2px solid var(--primary);
